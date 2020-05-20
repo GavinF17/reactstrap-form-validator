@@ -1,6 +1,11 @@
 {
   "name": "reactivestrap",
   "version": "0.1.0",
+  "author": {
+    "name": "Gavin Fenton",
+    "email": "contact@gavinfenton.com",
+    "url": "gavinfenton.com"
+  },
   "dependencies": {
     "react": "^16.13.1",
     "reactstrap": "^8.4.1"
