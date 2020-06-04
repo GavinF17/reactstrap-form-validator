@@ -1,7 +1,8 @@
 import React from 'react';
-import {VForm, VFormGroup, VInput, VInputGroup} from "./reactivestrap";
+import {VForm, VFormFeedback, VFormGroup, VInput, VInputGroup} from "./reactivestrap";
 import "./assets/reactivestrap.scss"
 import {Container, FormGroup, Input, InputGroup, Row} from "reactstrap";
+import FormFeedback from "reactstrap/es/FormFeedback";
 
 function App() {
   return (
@@ -10,15 +11,17 @@ function App() {
 
         <VForm>
           <Row>
-            <VFormGroup>
-              <VInput name="forename" validators={{minLength: {value: 2, message: "Too damn short"}}}/>
-            </VFormGroup>
+            {/*<VFormGroup>*/}
+            {/*  <VInput name="forename" validators={{minLength: {value: 2, message: "Too damn short"}}}/>*/}
+            {/*</VFormGroup>*/}
           </Row>
           <Row>
             <VFormGroup>
               <VInputGroup>
+                <VInput value="a" name="forename" validators={{minLength: {value: 2, message: "Too damn short"}}}/>
                 <VInput name="surname" validators={{maxLength: {value: 10, message: "Too damn long"}}}/>
-                <VInput/>
+                <VFormFeedback/>
+                <FormFeedback/>
               </VInputGroup>
             </VFormGroup>
           </Row>
