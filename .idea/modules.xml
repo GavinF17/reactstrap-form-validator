@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/reactivestrap.iml" filepath="$PROJECT_DIR$/.idea/reactivestrap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/reactstrap-form-validator.iml" filepath="$PROJECT_DIR$/.idea/reactstrap-form-validator.iml" />
     </modules>
   </component>
 </project>
