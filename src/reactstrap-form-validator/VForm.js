@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useEffect, useReducer} from 'react';
 import {Form} from "reactstrap";
 import PropTypes from "prop-types";
 import ReactJson from "react-json-view";
@@ -17,6 +17,10 @@ export const VForm = (props) => {
   const updateInput = (name, update = {}) => {
     setInputs({name, update});
   }
+
+  useEffect(() => {
+    Object.keys(props.externalErrors).forEach(k => updateInput(k, {externalErrors: props.externalErrors[k]}))
+  }, [props.externalErrors]);
 
   const validateInput = (name, valueOverride) => {
     const validators = inputs[name].validators;
@@ -83,6 +87,7 @@ export const VForm = (props) => {
     <VContext.Provider value={context}>
       <Form onSubmit={onSubmit}>
         {props.children}
+        <ReactJson src={props.externalErrors}/>
         <ReactJson src={inputs}/>
         <ReactJson src={context}/>
       </Form>

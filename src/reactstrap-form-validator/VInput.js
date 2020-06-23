@@ -33,7 +33,7 @@ export const VInput = (props) => {
   };
 
   const isInvalid = () => {
-    return !!context.inputs[props.name] && !!context.inputs[props.name].errors;
+    return !!context.inputs[props.name] && (!!context.inputs[props.name].errors || !!context.inputs[props.name].externalErrors);
   };
 
   const processedProps = {

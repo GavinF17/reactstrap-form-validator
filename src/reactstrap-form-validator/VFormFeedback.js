@@ -1,37 +1,45 @@
-import React, {useContext} from 'react';
-import {FormFeedback} from "reactstrap";
+import React, {useContext, useEffect, useState} from 'react';
 import {VContext} from "./VForm";
 import PropTypes from "prop-types";
+import {FormFeedback} from "reactstrap";
+
+const inputs = forProp => {
+  if (typeof forProp === 'string') {
+    return [forProp];
+  }
+
+  if (typeof forProp === 'object' && typeof forProp[Symbol.iterator] === 'function') {
+    return forProp;
+  }
+
+  return [];
+}
+
+const allErrors = inputState => (
+  !inputState
+    ? []
+    : [
+      ...((!!inputState.externalErrors && inputState.externalErrors) || []),
+      ...((!!inputState.errors && inputState.errors) || []),
+    ]
+);
 
 export const VFormFeedback = (props) => {
   const context = useContext(VContext);
 
-  const inputErrors = input => context.inputs[input] && context.inputs[input].errors;
+  const [errors, setErrors] = useState([]);
 
-  const allErrors = () => {
-    if (typeof props.for === 'string') {
-      return inputErrors(props.for);
-    }
-
-    if (typeof props.for === 'object' && typeof props.for[Symbol.iterator] === 'function') {
-      return props.for.reduce((a, c) => {
-        const fes = inputErrors(c);
-        return fes
-          ? [...a, ...fes]
-          : a;
-      }, []);
-    }
-  };
-
-  const errors = allErrors();
-
-  const errorMessage = errors
-    ? errors && errors.reduce((a, c, i) => [...a, ...(i > 0 ? [<br key={"error-" + i}/>, c] : c)], [])
-    : "Input is invalid";
+  useEffect(() => {
+    setErrors(
+      inputs(props.for)
+        .reduce((a, c) => [...a, ...allErrors(context.inputs[c])], [])
+        .reduce((a, c, i) => [...a, ...(i > 0 ? [<br key={'error-' + i}/>, c] : [c])], [])
+    );
+  }, [props.for, context.inputs]);
 
   return (
-    <FormFeedback valid={(props.for && !errors) || props.valid}>
-      {errorMessage}
+    <FormFeedback valid={errors.length < 1}>
+      {errors}
     </FormFeedback>
   );
 };

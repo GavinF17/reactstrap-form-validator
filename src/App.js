@@ -1,10 +1,19 @@
-import React from 'react';
-import {VForm, VFormFeedback, VFormGroup, VInput, VInputGroup} from "./reactstrap-form-validator";
+import React, {useState} from 'react';
+import {VForm, VFormFeedback, VInput, VInputGroup} from "./reactstrap-form-validator";
 import "./assets/reactivestrap.scss"
-import {Button, Container, FormGroup, InputGroup, Row} from "reactstrap";
+import {Button, Container, FormGroup, InputGroup, Label, Row} from "reactstrap";
 
 function App() {
-  const onValidSubmit = (values) => console.log("onValidSubmit", values);
+  const [externalErrors, setExternalErrors] = useState({});
+
+  const onValidSubmit = (values) => {
+    setExternalErrors({
+      email: ["Incorrect email format"],
+      forename: ['something forename'],
+      surname: ['something surname']
+    });
+  };
+
   const onInvalidSubmit = (values, errors) => console.log("onInvalidSubmit", values, errors);
 
   return (
@@ -13,7 +22,7 @@ function App() {
         <VForm
           onValidSubmit={onValidSubmit}
           onInvalidSubmit={onInvalidSubmit}
-          externalErrors={{email: ['Something was wrong']}}
+          externalErrors={externalErrors}
         >
           <Row>
             {/*<VFormGroup>*/}
@@ -21,33 +30,35 @@ function App() {
             {/*</VFormGroup>*/}
           </Row>
           <Row>
-            <VFormGroup>
-              <VInputGroup>
-                <VInput value="a" name="forename"
-                        validators={{minLength: {value: 2, message: "Forename, Too damn short"}}}/>
-                <VInput value="a" name="surname"
-                        validators={{minLength: {value: 2, message: "Surname Too damn short"}}}/>
-                <VFormFeedback for={["forename", "surname"]}/>
-              </VInputGroup>
-            </VFormGroup>
-          </Row>
-          <Row>
             <FormGroup>
-              <InputGroup>
+              <Label for="forename">Name</Label>
+              <VInputGroup for={["forename", "surname"]}>
                 <VInput value="a" name="forename"
                         validators={{minLength: {value: 2, message: "Forename, Too damn short"}}}/>
                 <VInput value="a" name="surname"
                         validators={{minLength: {value: 2, message: "Surname Too damn short"}}}/>
-                <VFormFeedback for={"forename"}/>
-              </InputGroup>
+              </VInputGroup>
+              <VFormFeedback for={["forename", "surname"]}/>
             </FormGroup>
           </Row>
           <Row>
             <FormGroup>
+              <InputGroup>
+                <VInput value="aa" name="forename"
+                        validators={{minLength: {value: 2, message: "Forename, Too damn short"}}}/>
+                <VInput value="aa" name="surname"
+                        validators={{minLength: {value: 2, message: "Surname Too damn short"}}}/>
+              </InputGroup>
+              <VFormFeedback for={["forename", "surname"]}/>
+            </FormGroup>
+          </Row>
+          <Row>
+            <FormGroup>
+              <Label className="is-invalid" for="email">Email</Label>
               <VInput value="a" name="email"
                 // validators={{minLength: {value: 2, message: "Too damn short"}}}
               />
-              <VFormFeedback/>
+              <VFormFeedback for="email"/>
             </FormGroup>
           </Row>
           <FormGroup>
