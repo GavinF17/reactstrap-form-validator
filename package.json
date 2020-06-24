@@ -23,14 +23,10 @@
     "cross-env": "^7.0.2",
     "node-sass": "^4.14.1",
     "react-json-view": "^1.19.1",
-    "react-scripts": "^3.4.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --config docs.config.js --watch",
-    "build:docs": "cross-env WEBPACK_BUILD=production webpack --config ./docs.config.js --progress --colors",
-    "build:lib": "babel src --out-dir lib"
+    "build:lib": "babel src --out-dir lib --out-dir docs/src/lib"
   },
   "files": [
     "lib",
