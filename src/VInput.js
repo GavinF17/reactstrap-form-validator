@@ -7,7 +7,8 @@ export const VInput = (props) => {
 
   // Initialise input
   useEffect(() => {
-    if (!context.inputs[props.name]) {
+    const currentState = context.inputs[props.name];
+    if (!currentState || currentState.initialValue !== props.value) {
       context.updateInput(props.name, {
         initialValue: props.value,
         value: props.value,

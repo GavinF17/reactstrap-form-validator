@@ -84,7 +84,7 @@ export const VForm = (props) => {
 
   return (
     <VContext.Provider value={context}>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} {...props}>
         {props.children}
       </Form>
     </VContext.Provider>
@@ -107,5 +107,6 @@ VForm.defaultProps = {
     focus: false,
     blur: true,
     change: true
-  }
+  },
+  externalErrors: []
 };
