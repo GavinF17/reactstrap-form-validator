@@ -1,4 +1,4 @@
-import * as validators from "./";
+import * as validators from "./index";
 
 export const validate = (value, constraints) => (
   constraints && Object.keys(constraints)

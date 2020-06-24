@@ -1,7 +1,6 @@
 import React, {useEffect, useReducer} from 'react';
 import {Form} from "reactstrap";
 import PropTypes from "prop-types";
-import ReactJson from "react-json-view";
 import {validate} from "./validator/validate";
 
 export const VContext = React.createContext();
@@ -87,9 +86,6 @@ export const VForm = (props) => {
     <VContext.Provider value={context}>
       <Form onSubmit={onSubmit}>
         {props.children}
-        <ReactJson src={props.externalErrors}/>
-        <ReactJson src={inputs}/>
-        <ReactJson src={context}/>
       </Form>
     </VContext.Provider>
   );

@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import {VForm} from './VForm';
+import {VFormFeedback} from './VFormFeedback';
+import {VFormGroup} from './VFormGroup';
+import {VInput} from './VInput';
+import {VInputGroup} from './VInputGroup';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-serviceWorker.unregister();
+export {
+  VForm,
+  VFormFeedback,
+  VFormGroup,
+  VInput,
+  VInputGroup
+}

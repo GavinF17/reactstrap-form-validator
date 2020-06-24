@@ -1,5 +1,5 @@
 {
-  "name": "reactivestrap",
+  "name": "reactstrap-form-validator",
   "version": "0.1.0",
   "author": {
     "name": "Gavin Fenton",
@@ -7,25 +7,41 @@
     "url": "gavinfenton.com"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "reactstrap": "^8.4.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
+    "cross-env": "^7.0.2",
     "node-sass": "^4.14.1",
-    "prop-types": "^15.7.2",
-    "react-dom": "^16.13.1",
-    "react-json-view": "1.19.1",
-    "react-scripts": "3.4.1"
+    "react-json-view": "^1.19.1",
+    "react-scripts": "^3.4.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack-dev-server --config docs.config.js --watch",
+    "build:docs": "cross-env WEBPACK_BUILD=production webpack --config ./docs.config.js --progress --colors",
+    "build:lib": "babel src --out-dir lib"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:GavinF17/reactstrap-form-validator.git"
   },
   "browserslist": {
     "production": [
