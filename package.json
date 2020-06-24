@@ -26,7 +26,8 @@
     "react-scripts": "^3.4.1"
   },
   "scripts": {
-    "build:lib": "babel src --out-dir lib --out-dir docs/src/lib"
+    "build:lib": "babel src --out-dir lib",
+    "build:lib:docs": "babel src --out-dir docs/src/lib"
   },
   "files": [
     "lib",
