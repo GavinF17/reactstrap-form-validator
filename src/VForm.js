@@ -11,6 +11,15 @@ const inputsReducer = (state, {name, update}) => ({
 });
 
 export const VForm = (props) => {
+  const {
+    externalErrors,
+    validateEvents,
+    onValidSubmit,
+    onInvalidSubmit,
+    children,
+    ...passedProps
+  } = props;
+
   const [inputs, setInputs] = useReducer(inputsReducer, {});
 
   const updateInput = (name, update = {}) => {
@@ -18,8 +27,8 @@ export const VForm = (props) => {
   }
 
   useEffect(() => {
-    Object.keys(props.externalErrors).forEach(k => updateInput(k, {externalErrors: props.externalErrors[k]}))
-  }, [props.externalErrors]);
+    Object.keys(externalErrors).forEach(k => updateInput(k, {externalErrors: externalErrors[k]}))
+  }, [externalErrors]);
 
   const validateInput = (name, valueOverride) => {
     const validators = inputs[name].validators;
@@ -32,7 +41,7 @@ export const VForm = (props) => {
   const blurInput = name => {
     updateInput(name, {blurred: true});
 
-    if (props.validateEvents.blur) {
+    if (validateEvents.blur) {
       validateInput(name);
     }
   };
@@ -40,7 +49,7 @@ export const VForm = (props) => {
   const focusInput = name => {
     updateInput(name, {focused: true});
 
-    if (props.validateEvents.focus) {
+    if (validateEvents.focus) {
       validateInput(name);
     }
   };
@@ -48,7 +57,7 @@ export const VForm = (props) => {
   const updateValue = (name, value) => {
     updateInput(name, {changed: true, value});
 
-    if (props.validateEvents.change) {
+    if (validateEvents.change) {
       validateInput(name, value);
     }
   }
@@ -72,20 +81,20 @@ export const VForm = (props) => {
     context.submitted = true;
 
     operations.validateAll()
-      ? !!props.onValidSubmit && props.onValidSubmit(getValuesObject())
-      : !!props.onInvalidSubmit && props.onInvalidSubmit(getValuesObject())
+      ? !!onValidSubmit && onValidSubmit(getValuesObject())
+      : !!onInvalidSubmit && onInvalidSubmit(getValuesObject())
   }
 
   const context = {
     inputs,
-    validateEvents: props.validateEvents,
+    validateEvents,
     ...operations
   };
 
   return (
     <VContext.Provider value={context}>
-      <Form onSubmit={onSubmit} {...props}>
-        {props.children}
+      <Form onSubmit={onSubmit} {...passedProps}>
+        {children}
       </Form>
     </VContext.Provider>
   );

@@ -6,6 +6,7 @@
     "email": "contact@gavinfenton.com",
     "url": "gavinfenton.com"
   },
+  "license": "MIT",
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -22,17 +23,21 @@
     "bootstrap": "^4.5.0",
     "cross-env": "^7.0.2",
     "node-sass": "^4.14.1",
+    "nodemon": "2.0.4",
     "react-json-view": "^1.19.1",
     "react-scripts": "^3.4.1"
   },
   "scripts": {
+    "start-docs-old": "npm run build:lib:docs && nodemon --watch src -x \"npm run build:lib:docs\" & react-scripts start",
+    "start-docs": "npm run build:lib:docs && nodemon --watch src -x \"npm run build:lib:docs\"",
     "build:lib": "babel src --out-dir lib",
-    "build:lib:docs": "babel src --out-dir docs/src/lib"
+    "build:lib:docs": "babel src --out-dir docs/src/reactstrap-form-validator"
   },
   "files": [
     "lib",
     "src"
   ],
+  "main": "lib/index.js",
   "eslintConfig": {
     "extends": "react-app"
   },

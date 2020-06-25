@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {VForm, VFormFeedback, VInput, VInputGroup} from './lib/index';
-// import {VForm} from 'lib/VForm';
+import {VForm, VFormFeedback, VInput, VInputGroup} from './reactstrap-form-validator';
+// import {VForm} from 'reactstrap-form-validator/VForm';
 import "./assets/reactivestrap.scss"
 import {Button, Container, FormGroup, InputGroup, Label, Row} from "reactstrap";
 
@@ -36,7 +36,7 @@ function App() {
           <Row>
             <FormGroup>
               <Label for="forename">Name</Label>
-              <VInputGroup for={["forename", "surname"]}>
+              <VInputGroup>
                 <VInput value={forename} name="forename"
                         validators={{minLength: {value: 2, message: "Forename, Too damn short"}}}/>
                 <VInput value="a" name="surname"
