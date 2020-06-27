@@ -1,5 +1,6 @@
 {
   "name": "reactstrap-form-validator",
+  "description": "reactstrap form validation",
   "version": "0.1.0-beta-9",
   "author": {
     "name": "Gavin Fenton",
@@ -31,13 +32,16 @@
     "start-docs-old": "npm run build:lib:docs && nodemon --watch src -x \"npm run build:lib:docs\" & react-scripts start",
     "start-docs": "npm run build:lib:docs && nodemon --watch src -x \"npm run build:lib:docs\"",
     "build:lib": "babel src --out-dir lib",
-    "build:lib:docs": "babel src --out-dir docs/src/reactstrap-form-validator"
+    "build:lib:docs": "babel src --out-dir docs/src/reactstrap-form-validator",
+    "test": "jest"
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "LICENSE"
   ],
   "main": "lib/index.js",
+  "esnext": "src/index.js",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -45,16 +49,11 @@
     "type": "git",
     "url": "git@github.com:GavinF17/reactstrap-form-validator.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "keywords": [
+    "reactstrap",
+    "bootstrap",
+    "react",
+    "form",
+    "validation"
+  ]
 }
