@@ -2,18 +2,25 @@ import React, {useState} from 'react';
 import {VForm, VFormFeedback, VInput, VInputGroup} from './reactstrap-form-validator';
 // import {VForm} from 'reactstrap-form-validator/VForm';
 import "./assets/reactivestrap.scss"
-import {Button, Container, FormGroup, InputGroup, Label, Row} from "reactstrap";
+import {Button, Container, FormGroup, Label, Row} from "reactstrap";
 
 function App() {
   const [externalErrors, setExternalErrors] = useState({});
   const [forename, setForename] = useState("bb");
 
   const onValidSubmit = (values) => {
-    setExternalErrors({
-      email: ["Incorrect email format"],
-      forename: ['something forename'],
-      surname: ['something surname']
-    });
+    if (externalErrors.email) {
+      setExternalErrors({
+        forename: ['something forename'],
+        surname: ['something surname']
+      });
+    } else {
+      setExternalErrors({
+        email: ["Incorrect email format"],
+        forename: ['something forename'],
+        surname: ['something surname']
+      });
+    }
 
     setForename("gavin")
   };
@@ -69,6 +76,7 @@ function App() {
             <Button>Submit</Button>
           </FormGroup>
         </VForm>
+        {JSON.stringify(externalErrors)}
       </Container>
     </div>
   );

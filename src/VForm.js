@@ -27,7 +27,7 @@ export const VForm = (props) => {
   }
 
   useEffect(() => {
-    Object.keys(externalErrors).forEach(k => updateInput(k, {externalErrors: externalErrors[k]}))
+    Object.keys(inputs).forEach(k => updateInput(k, {externalErrors: externalErrors[k]}));
   }, [externalErrors]);
 
   const validateInput = (name, valueOverride) => {
