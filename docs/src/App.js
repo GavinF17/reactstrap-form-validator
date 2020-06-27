@@ -45,9 +45,9 @@ function App() {
               <Label for="forename">Name</Label>
               <VInputGroup>
                 <VInput value={forename} name="forename"
-                        validators={{minLength: {value: 2, message: "Forename, Too damn short"}}}/>
-                <VInput value="a" name="surname"
-                        validators={{minLength: {value: 2, message: "Surname Too damn short"}}}/>
+                        validators={{minLength: {value: 2, message: "Forename, Too damn short"}, pattern: {value: "^[a-z]*$"}}}/>
+                <VInput value="" name="surname"
+                        validators={{minLength: {value: 2, message: "Surname Too damn short"}, required: true}}/>
               </VInputGroup>
               <VFormFeedback for={["forename", "surname"]}/>
             </FormGroup>
