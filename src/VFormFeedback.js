@@ -38,9 +38,12 @@ export const VFormFeedback = (props) => {
   }, [props.for, context.inputs]);
 
   return (
-    <FormFeedback valid={errors.length < 1}>
-      {errors}
-    </FormFeedback>
+    <>
+      <div className={errors.length > 0 && "is-invalid"}/>
+      <FormFeedback valid={errors.length < 1}>
+        {errors}
+      </FormFeedback>
+    </>
   );
 };
 
