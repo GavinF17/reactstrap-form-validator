@@ -26,4 +26,4 @@ yarn-error.log*
 /.idea
 
 /lib
-/docs/src/reactstrap-form-validator
+/docs/build

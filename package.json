@@ -7,6 +7,7 @@
     "email": "contact@gavinfenton.com",
     "url": "gavinfenton.com"
   },
+  "homepage": "https://reactstrap-form-validator.gavinfenton.com/",
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.7.2",
@@ -25,6 +26,7 @@
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
     "customize-cra": "^1.0.0",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "nodemon": "2.0.4",
     "react-app-rewired": "^2.1.6",
@@ -33,8 +35,10 @@
   },
   "scripts": {
     "start:docs": "nodemon --watch src -x \"npm run build:lib\" & react-app-rewired start",
+    "test": "jest --coverage && coveralls < coverage/lcov.info",
+    "build:docs": "react-app-rewired build",
     "build:lib": "babel src --out-dir lib",
-    "test": "jest --coverage && coveralls < coverage/lcov.info"
+    "publish:docs": "gh-pages -d docs/build"
   },
   "files": [
     "lib",
