@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/GavinF17/reactstrap-form-validator.svg?branch=feature/initial-version)](https://travis-ci.org/GavinF17/reactstrap-form-validator)
+[![Coverage Status](https://coveralls.io/repos/github/GavinF17/reactstrap-form-validator/badge.svg)](https://coveralls.io/github/GavinF17/reactstrap-form-validator) 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
