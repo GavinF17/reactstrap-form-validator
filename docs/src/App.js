@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {VForm, VFormFeedback, VInput, VInputGroup} from './reactstrap-form-validator';
-// import {VForm} from 'reactstrap-form-validator/VForm';
+import {VForm, VFormFeedback, VInput, VInputGroup} from 'reactstrap-form-validator';
 import "./assets/reactivestrap.scss"
 import {Button, Container, FormGroup, Label, Row} from "reactstrap";
 

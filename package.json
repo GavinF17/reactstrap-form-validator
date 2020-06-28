@@ -12,7 +12,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "reactstrap": "^8.4.1"
+    "reactstrap": "^8.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
@@ -24,16 +24,16 @@
     "bootstrap": "^4.5.0",
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
+    "customize-cra": "^1.0.0",
     "node-sass": "^4.14.1",
     "nodemon": "2.0.4",
+    "react-app-rewired": "^2.1.6",
     "react-json-view": "^1.19.1",
     "react-scripts": "^3.4.1"
   },
   "scripts": {
-    "start-docs-old": "npm run build:lib:docs && nodemon --watch src -x \"npm run build:lib:docs\" & react-scripts start",
-    "start-docs": "npm run build:lib:docs && nodemon --watch src -x \"npm run build:lib:docs\"",
+    "start:docs": "nodemon --watch src -x \"npm run build:lib\" & react-app-rewired start",
     "build:lib": "babel src --out-dir lib",
-    "build:lib:docs": "babel src --out-dir docs/src/reactstrap-form-validator",
     "test": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "files": [
@@ -56,5 +56,17 @@
     "react",
     "form",
     "validation"
-  ]
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
