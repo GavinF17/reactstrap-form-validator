@@ -21,6 +21,7 @@
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
+    "@fortawesome/fontawesome-free": "^5.13.1",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
     "coveralls": "^3.1.0",
@@ -30,8 +31,10 @@
     "node-sass": "^4.14.1",
     "nodemon": "2.0.4",
     "react-app-rewired": "^2.1.6",
-    "react-json-view": "^1.19.1",
-    "react-scripts": "^3.4.1"
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start:docs": "nodemon --watch src -x \"npm run build:lib\" & react-app-rewired start",
