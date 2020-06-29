@@ -1,6 +1,6 @@
 {
-  "short_name": "reactivestrap",
-  "name": "reactivestrap",
+  "short_name": "reactstrap-form-validator",
+  "name": "reactstrap-form-validator",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

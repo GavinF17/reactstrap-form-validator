@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/Docs/index.js"],"names":["Docs"],"mappings":"6IAAA,gEAEaA,EAAO,kBAClB,qEAGaA","file":"static/js/3.ebce1c66.chunk.js","sourcesContent":["import React from 'react';\n\nexport const Docs = () => (\n  <>The docs are on their way...</>\n);\n\nexport default Docs;\n"],"sourceRoot":""}
