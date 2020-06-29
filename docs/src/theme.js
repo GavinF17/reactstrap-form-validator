@@ -1,7 +1,7 @@
 import {createGlobalStyle} from "styled-components";
 
 const colours = {
-  green: '#40b10c',
+  green: '#28b76b',
   grey: '#1C1C1C',
   white: '#FFFFFF',
   black: '#000000',
@@ -16,6 +16,7 @@ export const lightTheme = {
   boxShadow: grey + '55',
   cardBackground: 'none',
   cardColor: grey,
+  docsNavShadow: grey,
 };
 
 export const darkTheme = {
@@ -24,6 +25,7 @@ export const darkTheme = {
   boxShadow: white + '44',
   cardBackground: green,
   cardColor: white,
+  docsNavShadow: white,
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -32,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.color};
   }
 
-  .header {
+  .header-banner {
     color: ${white};
     h1, h2, h3, h4, h5, h6 {
       color: ${white};
@@ -41,8 +43,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .card {
-    box-shadow: 1px 2px 2px 2px ${({ theme }) => theme.boxShadow};
+    box-shadow: 0px 0px 5px 1px ${({ theme }) => theme.boxShadow};
     background-color: ${({ theme }) => theme.cardBackground};
     color: ${({ theme }) => theme.cardColor};
+  }
+
+  .header-icons svg {
+    fill: ${({ theme }) => theme.color};
+  }
+
+  #docs-nav {
+    box-shadow: ${({ theme }) => theme.docsNavShadow};
   }
 `

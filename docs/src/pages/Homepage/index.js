@@ -8,7 +8,7 @@ import {Col} from "reactstrap";
 import {Link} from "react-router-dom";
 
 const DocCard = ({icon, header, description, link}) => (
-  <Col className="mb-5">
+  <Col className="mb-4" sm={12} md={4}>
     <Link to={link || '#'}>
       <Card>
         <CardHeader>

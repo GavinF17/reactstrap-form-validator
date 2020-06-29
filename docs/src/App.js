@@ -7,11 +7,7 @@ import {darkTheme, GlobalStyles, lightTheme} from "./theme";
 import {Header} from "./components/Header";
 
 const App = () => {
-  const [dark, setDark] = useState(localStorage.getItem('darkTheme') == 'true');
-
-  useEffect(() => {
-    console.log(localStorage.getItem('darkTheme'))
-  });
+  const [dark, setDark] = useState(localStorage.getItem('darkTheme') === 'true');
 
   const toggleTheme = () => {
     const newVal = !dark;
