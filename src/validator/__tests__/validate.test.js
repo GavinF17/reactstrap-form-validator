@@ -1,8 +1,9 @@
 import {validate} from "../validate";
-import {min, max} from "../";
+import {max, min} from "../";
 
 jest.mock('../', () => ({
-  min: jest.fn(() => {}),
+  min: jest.fn(() => {
+  }),
   max: jest.fn(() => "Too large"),
 }));
 
@@ -23,6 +24,24 @@ describe('validate', () => {
     })).toStrictEqual(["Too large"]);
     expect(min).toHaveBeenNthCalledWith(1, 'some input', minConstraint);
     expect(max).toHaveBeenNthCalledWith(1, 'some input', maxConstraint);
+  });
+
+  it('calls single custom validator', () => {
+    const customValidator = jest.fn(() => "Something is wrong");
+
+    expect(validate('some input', {customValidator})).toStrictEqual(["Something is wrong"]);
+    expect(customValidator).toHaveBeenNthCalledWith(1, 'some input');
+  });
+
+  it('calls mix of validators and custom validators', () => {
+    const customValidator = jest.fn(() => "Something is wrong");
+
+    expect(validate('some input', {
+      max: maxConstraint,
+      customValidator
+    })).toStrictEqual(["Too large", "Something is wrong"]);
+    expect(max).toHaveBeenNthCalledWith(1, 'some input', maxConstraint);
+    expect(customValidator).toHaveBeenNthCalledWith(1, 'some input');
   });
 
 });

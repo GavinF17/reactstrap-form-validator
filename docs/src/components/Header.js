@@ -16,13 +16,11 @@ export const Header = ({dark, toggleTheme}) => (
         <a target="_empty" href="https://www.npmjs.com/package/reactstrap-form-validator">
           <ReactSVG className="mr-2" src={npm}/>
         </a>
-        {/*<img className="mr-2 float-left" src={dark ? moon : sun} alt="Toggle theme" onClick={toggleTheme}/>*/}
-        {/*<svg className="mr-2 float-left"  xmlns={sun}/>*/}
-        <ReactSVG className="float-left"  src={dark ? moon : sun} onClick={toggleTheme}/>
+        <ReactSVG className="float-left" src={dark ? moon : sun} onClick={toggleTheme}/>
       </div>
     </div>
 
-    <div id="header-banner" className="header-banner position-relative">
+    <div className="header-banner position-relative">
       <div className="far header-banner-bg"/>
       <div className="header-banner-text">
         Reactstrap Form Validation

@@ -3,8 +3,10 @@ import React from 'react';
 // General
 const Homepage = React.lazy(() => import('../pages/Homepage'));
 
-// General
-const Docs = React.lazy(() => import('../pages/Docs'));
+// Docs
+const GettingStarted = React.lazy(() => import('../pages/Docs/GettingStarted'));
+const Components = React.lazy(() => import('../pages/Docs/Components'));
+const Validators = React.lazy(() => import('../pages/Docs/Validators'));
 
 const generalRoutes = {
   path: '/',
@@ -14,7 +16,6 @@ const generalRoutes = {
     {
       path: '/',
       name: 'Home',
-      // icon: 'question-circle',
       component: Homepage
     }
   ]
@@ -26,10 +27,22 @@ const docRoutes = {
   header: 'Quizee',
   children: [
     {
-      path: '/docs',
-      name: 'Docs',
+      path: '/docs/getting-started',
+      name: 'Getting Started',
       // icon: 'question-circle',
-      component: Docs
+      component: GettingStarted
+    },
+    {
+      path: '/docs/components',
+      name: 'Components',
+      // icon: 'question-circle',
+      component: Components
+    },
+    {
+      path: '/docs/validators',
+      name: 'Validators',
+      // icon: 'question-circle',
+      component: Validators
     }
   ]
 };

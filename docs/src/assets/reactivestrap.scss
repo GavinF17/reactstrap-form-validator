@@ -47,6 +47,7 @@ html {
 }
 
 .header-banner {
+  //height: 120px;
   padding: 15px 0;
   text-align: center;
 
@@ -127,6 +128,11 @@ a {
   top: 0;
   //padding-top: $header-height;
   //margin-top: -$header-height;
+}
+
+.docs-content {
+  float: right;
+  height: 100%;
 }
 
 a {
