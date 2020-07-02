@@ -2,6 +2,15 @@ import React, {useContext, useEffect} from 'react';
 import {Input} from "reactstrap";
 import {VContext} from "./VForm";
 
+const validationAttributes = ({min, max, minLength, maxLength, required, pattern}) => ({
+  max: max && max.value,
+  maxLength: maxLength && maxLength.value,
+  min: min && min.value,
+  minLength: minLength && minLength.value,
+  pattern: pattern && pattern.value,
+  required: !!required,
+});
+
 export const VInput = (props) => {
   const context = useContext(VContext);
 
@@ -49,6 +58,7 @@ export const VInput = (props) => {
       onBlur={setBlurred}
       onChange={updateValue}
       {...processedProps}
+      {...validationAttributes({...props.validators})}
     />
   );
 }

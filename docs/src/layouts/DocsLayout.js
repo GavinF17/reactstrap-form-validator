@@ -1,14 +1,13 @@
 import React from 'react';
 import {DocsNavigation} from "../components/DocsNavigation";
-import Container from "reactstrap/es/Container";
 
 export const DocsLayout = ({children}) => (
-  <>
-    <DocsNavigation/>
-    <Container fluid>
+  <div className="content">
+    {/*<DocsNavigation/>*/}
+    <div>
       <div className="docs-content">
         {children}
       </div>
-    </Container>
-  </>
+    </div>
+  </div>
 );
