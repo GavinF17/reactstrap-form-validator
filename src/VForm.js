@@ -106,8 +106,7 @@ VForm.propTypes = {
     focus: PropTypes.bool,
   }).isRequired,
   onValidSubmit: PropTypes.func,
-  onInvalidSubmit: PropTypes.func,
-  submissionErrorProcessor: PropTypes.func
+  onInvalidSubmit: PropTypes.func
 };
 
 VForm.defaultProps = {

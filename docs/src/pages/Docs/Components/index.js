@@ -1,12 +1,20 @@
-import React, {useState} from 'react';
-import {Button, FormGroup, Label, Row} from "reactstrap";
-import {VForm, VFormFeedback, VInput, VInputGroup} from "reactstrap-form-validator";
+import React, {Fragment, useState} from 'react';
 import {VFormSection} from "./VFormSection";
+import {VFormGroupSection} from "./VFormGroupSection";
+import {VInputGroupSection} from "./VInputGroupSection";
 
 const sections = [
   {
     title: 'VForm',
     component: VFormSection
+  },
+  {
+    title: 'VFormGroup',
+    component: VFormGroupSection
+  },
+  {
+    title: 'VInputGroup',
+    component: VInputGroupSection
   }
 ];
 
@@ -38,11 +46,14 @@ export const Components = () => {
     <>
       <h1>Components</h1>
 
-      {sections.map(section => (
-        <div id={section.title.toLowerCase().replace(/\s/g, "-")}>
-          <h2>{section.title}</h2>
-          {section.component()}
-        </div>
+      {sections.map((section, index) => (
+        <Fragment key={section.title.toLowerCase().replace(/\s/g, "-")}>
+          {index > 0 && <hr/>}
+          <div id={section.title.toLowerCase().replace(/\s/g, "-")}>
+            <h2>{section.title}</h2>
+            {section.component()}
+          </div>
+        </Fragment>
       ))}
 
       {/*<VForm*/}
