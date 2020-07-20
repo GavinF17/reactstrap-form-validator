@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/Docs/GettingStarted/index.js"],"names":["GettingStarted"],"mappings":"8IAAA,0EAEaA,EAAiB,kBAC5B,wDAGaA","file":"static/js/6.a53d4f93.chunk.js","sourcesContent":["import React from 'react';\n\nexport const GettingStarted = () => (\n  <>Getting Started</>\n);\n\nexport default GettingStarted;\n"],"sourceRoot":""}
