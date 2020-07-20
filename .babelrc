@@ -20,6 +20,16 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    [
+      "prismjs",
+      {
+        "languages": [
+          "jsx"
+        ],
+        "theme": "okaidia",
+        "css": true
+      }
+    ]
   ]
 }

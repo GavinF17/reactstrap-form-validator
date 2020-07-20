@@ -2,12 +2,15 @@
 @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "node_modules/@fortawesome/fontawesome-free/scss/regular";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+//@import "node_modules/prismjs/themes/prism-dark.css";
 
 $green: #28b76b;
 $grey: #1C1C1C;
 $white: #FFFFFF;
 $black: #000000;
 $red: #DA353C;
+
+@import "prism";
 
 html {
   font-size: 16px;
@@ -90,9 +93,9 @@ body {
   max-width: 1000px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: $green;
-}
+//h1, h2, h3, h4, h5, h6 {
+//  color: $green;
+//}
 
 .fit-content {
   width: fit-content;
@@ -132,7 +135,6 @@ a {
 }
 
 .docs-content {
-  float: right;
   height: 100%;
 }
 
@@ -157,5 +159,11 @@ a {
     @media screen and (min-width: $value) {
       display: inherit;
     }
+  }
+}
+
+@for $i from 1 through 6 {
+  .h#{$i}, h#{$i} {
+    color: darken($green, ($i - 1) * 5%);
   }
 }
