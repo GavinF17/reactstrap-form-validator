@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, Col, Label, Row} from "reactstrap";
-import {VForm, VFormGroup, VInput} from "reactstrap-form-validator";
+import {Button, Col, CustomInput, FormGroup, Input, Label, Row} from "reactstrap";
+import {VCustomInput, VForm, VFormGroup, VInput} from "reactstrap-form-validator";
 import {PrismCode} from "../../../components/PrismCode";
 import {PropsTable} from "../../../components/PropsTable";
 
@@ -9,6 +9,9 @@ const VFormCode = `
   <VFormGroup>
     <Label>Name</Label>
     <VInput name="name" type="text"/>
+  </VFormGroup>
+  <VFormGroup>
+    <VCustomInput name="enabled" label="Enabled" type="checkbox"/>
   </VFormGroup>
   <Button type="submit">Submit</Button>
 </VForm>
@@ -36,6 +39,9 @@ export const VFormSection = () => {
             <VFormGroup>
               <Label>Name</Label>
               <VInput name="name" type="text"/>
+            </VFormGroup>
+            <VFormGroup>
+              <VCustomInput name="enabled" label="Enabled" type="checkbox"/>
             </VFormGroup>
             <Button type="submit">Submit</Button>
           </VForm>

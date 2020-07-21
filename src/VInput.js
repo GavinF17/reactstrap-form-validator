@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {Input} from "reactstrap";
+import {CustomInput, Input} from "reactstrap";
 import {VContext} from "./VForm";
 
 const validationAttributes = ({min, max, minLength, maxLength, required, pattern}) => ({
@@ -51,8 +51,10 @@ export const VInput = (props) => {
     value: (context.inputs[props.name] && context.inputs[props.name].value) || ""
   };
 
+  const InputComponent = props.custom ? CustomInput : Input;
+
   return (
-    <Input
+    <InputComponent
       invalid={isInvalid()}
       onFocus={setFocused}
       onBlur={setBlurred}
