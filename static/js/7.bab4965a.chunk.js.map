@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/Docs/Validators/index.js"],"names":["Validators"],"mappings":"8IAAA,sEAEaA,EAAa,kBACxB,mDAGaA","file":"static/js/7.bab4965a.chunk.js","sourcesContent":["import React from 'react';\n\nexport const Validators = () => (\n  <>Validators</>\n);\n\nexport default Validators;\n"],"sourceRoot":""}
