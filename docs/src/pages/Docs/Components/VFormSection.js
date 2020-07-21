@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Col, CustomInput, FormGroup, Input, Label, Row} from "reactstrap";
+import {Button, Col, Label, Row} from "reactstrap";
 import {VCustomInput, VForm, VFormGroup, VInput} from "reactstrap-form-validator";
 import {PrismCode} from "../../../components/PrismCode";
 import {PropsTable} from "../../../components/PropsTable";
