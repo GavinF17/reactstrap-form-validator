@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment} from 'react';
 import {VFormSection} from "./VFormSection";
 import {VFormGroupSection} from "./VFormGroupSection";
 import {VInputGroupSection} from "./VInputGroupSection";
@@ -16,98 +16,25 @@ const sections = [
     title: 'VInputGroup',
     component: VInputGroupSection
   }
-];
+].map(section => ({
+  ...section,
+  id: section.title.toLowerCase().replace(/\s/g, "-")
+}));
 
-export const Components = () => {
-  const [externalErrors, setExternalErrors] = useState({});
-  const [forename, setForename] = useState("bb");
+export const Components = () => (
+  <>
+    <h1>Components</h1>
 
-  const onValidSubmit = (values) => {
-    if (externalErrors.email) {
-      setExternalErrors({
-        forename: ['something forename'],
-        surname: ['something surname']
-      });
-    } else {
-      setExternalErrors({
-        email: ["Incorrect email format"],
-        forename: ['something forename'],
-        surname: ['something surname']
-      });
-    }
-
-    setForename("gavin")
-  };
-
-  const onInvalidSubmit = (values, errors) => console.log("onInvalidSubmit", values, errors);
-
-
-  return (
-    <>
-      <h1>Components</h1>
-
-      {sections.map((section, index) => (
-        <Fragment key={section.title.toLowerCase().replace(/\s/g, "-")}>
-          {index > 0 && <hr/>}
-          <div id={section.title.toLowerCase().replace(/\s/g, "-")}>
-            <h2>{section.title}</h2>
-            {section.component()}
-          </div>
-        </Fragment>
-      ))}
-
-      {/*<VForm*/}
-      {/*  onValidSubmit={onValidSubmit}*/}
-      {/*  onInvalidSubmit={onInvalidSubmit}*/}
-      {/*  externalErrors={externalErrors}*/}
-      {/*>*/}
-      {/*  <Row>*/}
-      {/*    /!*<VFormGroup>*!/*/}
-      {/*    /!*  <VInput name="forename" validators={{minLength: {value: 2, message: "Too damn short"}}}/>*!/*/}
-      {/*    /!*</VFormGroup>*!/*/}
-      {/*  </Row>*/}
-      {/*  <Row>*/}
-      {/*    <FormGroup>*/}
-      {/*      <Label for="forename">Name</Label>*/}
-      {/*      <VInputGroup>*/}
-      {/*        <VInput value={forename} name="forename"*/}
-      {/*                validators={{*/}
-      {/*                  minLength: {value: 2, message: "Forename, Too damn short"},*/}
-      {/*                  maxLength: {value: 5, message: "Forename, Too damn long"},*/}
-      {/*                  pattern: {value: "^[a-z]*$"}*/}
-      {/*                }}/>*/}
-      {/*        <VInput value="" name="surname"*/}
-      {/*                validators={{minLength: {value: 2, message: "Surname Too damn short"}, required: true}}/>*/}
-      {/*      </VInputGroup>*/}
-      {/*      <VFormFeedback for={["forename", "surname"]}/>*/}
-      {/*    </FormGroup>*/}
-      {/*  </Row>*/}
-      {/*  /!*<Row>*!/*/}
-      {/*  /!*  <FormGroup>*!/*/}
-      {/*  /!*    <InputGroup>*!/*/}
-      {/*  /!*      <VInput value="aa" name="forename"*!/*/}
-      {/*  /!*              validators={{minLength: {value: 2, message: "Forename, Too damn short"}}}/>*!/*/}
-      {/*  /!*      <VInput value="aa" name="surname"*!/*/}
-      {/*  /!*              validators={{minLength: {value: 2, message: "Surname Too damn short"}}}/>*!/*/}
-      {/*  /!*    </InputGroup>*!/*/}
-      {/*  /!*    <VFormFeedback for={["forename", "surname"]}/>*!/*/}
-      {/*  /!*  </FormGroup>*!/*/}
-      {/*  /!*</Row>*!/*/}
-      {/*  <Row>*/}
-      {/*    <FormGroup>*/}
-      {/*      <Label className="is-invalid" for="email">Email</Label>*/}
-      {/*      <VInput value="a" name="email"*/}
-      {/*        // validators={{minLength: {value: 2, message: "Too damn short"}}}*/}
-      {/*      />*/}
-      {/*      <VFormFeedback for="email"/>*/}
-      {/*    </FormGroup>*/}
-      {/*  </Row>*/}
-      {/*  <FormGroup>*/}
-      {/*    <Button>Submit</Button>*/}
-      {/*  </FormGroup>*/}
-      {/*</VForm>*/}
-    </>
-  )
-};
+    {sections.map((section, index) => (
+      <Fragment key={section.id}>
+        {index > 0 && <hr/>}
+        <div id={section.id}>
+          <h2>{section.title}</h2>
+          {section.component()}
+        </div>
+      </Fragment>
+    ))}
+  </>
+);
 
 export default Components;

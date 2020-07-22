@@ -2,6 +2,10 @@ import * as index from '../';
 
 describe('index', () => {
 
+  it('includes VCustomInput', () => {
+    expect(typeof index.VCustomInput).toBe('function');
+  });
+
   it('includes VForm', () => {
     expect(typeof index.VForm).toBe('function');
   });

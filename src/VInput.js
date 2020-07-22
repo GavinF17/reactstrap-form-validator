@@ -12,6 +12,11 @@ const validationAttributes = ({min, max, minLength, maxLength, required, pattern
 });
 
 export const VInput = (props) => {
+  const {
+    custom,
+    ...passedProps
+  } = props;
+
   const context = useContext(VContext);
 
   // Initialise input
@@ -47,11 +52,11 @@ export const VInput = (props) => {
   };
 
   const processedProps = {
-    ...props,
+    ...passedProps,
     value: (context.inputs[props.name] && context.inputs[props.name].value) || ""
   };
 
-  const InputComponent = props.custom ? CustomInput : Input;
+  const InputComponent = custom ? CustomInput : Input;
 
   return (
     <InputComponent

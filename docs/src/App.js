@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import "./assets/reactivestrap.scss"
 import {Routes} from "./routes/Routes";
 import {BrowserRouter} from "react-router-dom";

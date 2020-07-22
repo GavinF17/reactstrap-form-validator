@@ -7,7 +7,6 @@ export const PrismCode = ({code}) => {
 
   const highlight = () => {
     if (ref && ref.current) {
-      console.log(ref.current)
       Prism.highlightElement(ref.current);
     }
   }
