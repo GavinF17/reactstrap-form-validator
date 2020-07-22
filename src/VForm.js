@@ -16,6 +16,7 @@ export const VForm = (props) => {
     validateEvents,
     onValidSubmit,
     onInvalidSubmit,
+    nativeValidation,
     children,
     ...passedProps
   } = props;
@@ -93,7 +94,7 @@ export const VForm = (props) => {
 
   return (
     <VContext.Provider value={context}>
-      <Form onSubmit={onSubmit} {...passedProps}>
+      <Form noValidate={!nativeValidation} onSubmit={onSubmit} {...passedProps}>
         {children}
       </Form>
     </VContext.Provider>
