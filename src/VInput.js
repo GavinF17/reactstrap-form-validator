@@ -11,6 +11,18 @@ const validationAttributes = ({min, max, minLength, maxLength, required, pattern
   required: !!required,
 });
 
+const getValueProcessor = (type, value) => {
+  if (['checkbox', 'radio'].indexOf(type) > -1) {
+    if (!!value) {
+      return ({value, checked}) => (checked && value) || undefined;
+    } else {
+      return ({checked}) => checked;
+    }
+  } else {
+    return ({value}) => value;
+  }
+}
+
 export const VInput = (props) => {
   const {
     custom,
@@ -18,6 +30,8 @@ export const VInput = (props) => {
   } = props;
 
   const context = useContext(VContext);
+
+  const processValue = getValueProcessor(props.type, props.value);
 
   // Initialise input
   useEffect(() => {
@@ -31,8 +45,8 @@ export const VInput = (props) => {
     }
   })
 
-  const updateValue = ({target: {value}}) => {
-    context.updateValue(props.name, value);
+  const updateValue = ({target}) => {
+    context.updateValue(props.name, processValue(target));
   };
 
   const setBlurred = () => {
